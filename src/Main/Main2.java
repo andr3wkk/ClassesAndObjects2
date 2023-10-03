@@ -2,11 +2,8 @@ package Main;
 import java.util.Collections;
 import java.util.Scanner;
 public class Main2 {
-    static int i = 1;
-    static int counter = 0;
     static int answer;
     static String cont;
-    static int num;
     static String name;
     static int releaseYear;
     static String genre;
@@ -15,7 +12,7 @@ public class Main2 {
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
         Collection series = new Collection();
-        series.addSItem(new Series("Breaking Bad", 2008, "Crime drama","USA", 5));
+        series.add(new Series("Breaking Bad", 2008, "Crime drama","USA", 5));
         do {
             System.out.println("Welcome to the series database!\n" +
                     "Choose an option to proceed:\n" +
@@ -29,7 +26,7 @@ public class Main2 {
 
         if (answer == 1) {
             addSeries();
-            series.addSItem(new Series(name, releaseYear,genre, country, numberOfSeasons));
+            series.add(new Series(name, releaseYear,genre, country, numberOfSeasons));
 
             System.out.println("Do you want to continue?");
             cont = in.next();
@@ -39,7 +36,7 @@ public class Main2 {
             String info = in.next();
             if (info.equals("Yes")) {
                 System.out.println("Please, enter number of you collection object:");
-                num = in.nextInt();
+                series.printOne(in.nextInt());
                 cont = in.nextLine();
             } else {
                 series.print();
@@ -48,9 +45,17 @@ public class Main2 {
 
         } else if (answer == 3) {
 
+            cont = in.nextLine();
+
         } else if (answer == 4) {
+            searchName(series);
+
+            cont = in.nextLine();
 
         } else if (answer == 5) {
+            searchYear(series);
+
+            cont = in.nextLine();
 
         } else {
 
@@ -70,5 +75,17 @@ public class Main2 {
         country = in.next();
         System.out.println("Please, enter number of seasons:");
         numberOfSeasons = in.nextInt();
+    }
+    public static void searchName(Collection series) {
+        System.out.print("Please, enter a series name for searching");
+        String searchName = in.next();
+        System.out.println("Series found:");
+        series.findName(searchName);
+    }
+    public static void searchYear(Collection series) {
+        System.out.print("Please, enter series release year for searching");
+        int searchYear = in.nextInt();
+        System.out.println("Series released in" + searchYear + " :");
+        series.findYear(searchYear);
     }
 }
