@@ -1,5 +1,4 @@
 package Main;
-
 public class Series {
     private String name;
     private int releaseYear;
@@ -60,5 +59,6 @@ public class Series {
         System.out.println("First episode was released in " + releaseYear + ", " + country + ".");
         System.out.println("Genre of " + "'" + name + "'" + " is " + genre);
         System.out.println("This series consists of " + numberOfSeasons + " seasons.");
+        System.out.println("");
     }
 }

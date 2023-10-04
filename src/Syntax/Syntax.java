@@ -1,7 +1,4 @@
 package Syntax;
-
-import Main.Main2;
-
 class Human {
 public String name;
 private int age;

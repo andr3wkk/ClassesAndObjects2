@@ -1,7 +1,4 @@
 package Syntax;
-
-import Main.Main2;
-
 public class Syntax2 {
     public static void main(String[] args) {
 //1

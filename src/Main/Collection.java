@@ -1,7 +1,5 @@
 package Main;
-
 import java.util.ArrayList;
-
 public class Collection {
     private ArrayList<Series> series;
     private int count;
@@ -22,6 +20,7 @@ public class Collection {
             series.print();
         }
     }
+
     public void printOne(int i) {
         System.out.println("Here is info about series:");
         if (i >= 0 && i < count) {
@@ -31,7 +30,31 @@ public class Collection {
         }
     }
 
-    public void findName(String searchSeries) {
+    public void sortByYear() {
+        for (int i = 0; i < count; i++) {
+            boolean isSorted = true;
+            for (int j = 0; j < (count - 1); j++) {
+                if (series.get(j).getReleaseYear() > series.get(j + 1).getReleaseYear()) {
+                    swap(series, j, j + 1);
+                    isSorted = false;
+                }
+            }
+            if (isSorted) {
+                return;
+            }
+        }
+        for (Series series: series) {
+            series.print();
+        }
+    }
+
+    public static void swap(ArrayList<Series> seriesArrayList, int a, int b) {
+        Series temp = seriesArrayList.get(a);
+        seriesArrayList.set(a, seriesArrayList.get(b));
+        seriesArrayList.set(b, temp);
+    }
+
+        public void findName(String searchSeries) {
         for (Series series: series) {
             if (series.getName().contains(searchSeries)) {
                 series.print();
