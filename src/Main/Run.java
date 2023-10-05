@@ -48,6 +48,7 @@ public class Run {
 
             } else if (answer == 3) {
                 series.sortByYear();
+                System.out.println("Here is sorted array list by release year");
                 series.print();
                 System.out.println("Do you want to continue?");
                 cont = in.next();
